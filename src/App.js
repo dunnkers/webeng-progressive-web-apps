@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './rug-logo.svg';
-import heavyimg from './heavy-img.jpeg';
-import heavyimg2 from './heavy-img2.jpeg';
-import heavyimg3 from './heavy-img3.jpeg';
+import heavyimg from './heavy-img.webp';
+import heavyimg2 from './heavy-img2.webp';
+import heavyimg3 from './heavy-img3.webp';
 import './App.css';
 
 class App extends Component {
