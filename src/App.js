@@ -6,27 +6,22 @@ import heavyimg3 from './heavy-img3.jpeg';
 import './App.css';
 
 class App extends Component {
-  // Infinite Series PI calculation.
-  calculatePI(iterations = 10000) {
-    console.time('calculating pi');
-    let pi = 0;
-    let iterator = sequence();
+  state = {
+    pi: -1
+  }
 
-    for(let i = 0; i < iterations; i++){
-        pi += 4 /  iterator.next().value;
-        pi -= 4 / iterator.next().value;
-    }
+  componentDidMount() {
+    if (window.Worker) {
+      let appWorker = new Worker('app.worker.js');
 
-    function* sequence() {
-      let i = 1;
-      while(true){
-        yield i;
-        i += 2;
+      appWorker.onmessage = (e) => {
+          console.log('got data back.')
+          this.setState({ pi: e.data });
       }
-    }
 
-    console.timeEnd('calculating pi');
-    return pi;
+      console.log('starting pi calculation.')
+      appWorker.postMessage({ data: 100000000, event: 'calc' });
+    }
   }
 
   render() {
@@ -43,7 +38,7 @@ class App extends Component {
         <img src={heavyimg3} alt="heavy" width={400} />
         <div className="content">
           <code>
-            {this.calculatePI(100000000)}
+            {this.state.pi}
           </code>
         </div>
         <div className="content">
