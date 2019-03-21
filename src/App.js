@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './rug-logo.svg';
+import heavyimg from './heavy-img.jpeg';
+import heavyimg2 from './heavy-img2.jpeg';
+import heavyimg3 from './heavy-img3.jpeg';
 import './App.css';
 
 class App extends Component {
@@ -7,19 +10,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="logo" width={300} />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Web Engineering RUG 18-19.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
+        <img src={heavyimg} alt="heavy" width={400} />
+        <img src={heavyimg2} alt="heavy" width={400} />
+        <img src={heavyimg3} alt="heavy" width={400} />
       </div>
     );
   }
